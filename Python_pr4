@@ -1,0 +1,41 @@
+# Завдання 1: f-strings
+first_name = input("Введіть ім'я: ")
+last_name = input("Введіть прізвище: ")
+age = float(input("Введіть вік: "))
+city = input("Введіть місто: ")
+
+print(f"{first_name:<10} {last_name} має {age:.2f} років і живе в {city:>15}.")
+
+# Завдання 2: .format()
+products = []
+n = int(input("Скільки товарів ви хочете ввести? "))
+for _ in range(n):
+    name = input("Назва товару: ")
+    price = float(input("Ціна: "))
+    qty = int(input("Кількість: "))
+    products.append((name, price, qty))
+
+print("\n{:<20}{:>10}{:^8}".format("Назва товару", "Ціна", "К-сть"))
+print("-" * 38)
+for p in products:
+    print("{:<20}{:>10.2f}{:^8}".format(p[0], p[1], p[2]))
+
+# Завдання 3: звіт про студентів
+students = [
+    ("Іван", 85.25, 92),
+    ("Олена", 90.5, 88),
+    ("Андрій", 78.75, 95),
+    ("Марія", 92.0, 85)
+]
+
+print("\nЗВІТ ПРО УСПІШНІСТЬ СТУДЕНТІВ")
+print("{:<10} | {:^12} | {:>15}".format("Ім'я", "Середній бал", "Відвідуваність (%)"))
+print("-" * 45)
+total_score = 0
+for student in students:
+    print("{:<10} | {:^12.2f} | {:>15}%".format(student[0], student[1], student[2]))
+    total_score += student[1]
+
+avg_score = total_score / len(students)
+print("-" * 45)
+print("{:<10} | {:^12.2f} | {:>15}".format("Середнє", avg_score, "—"))
